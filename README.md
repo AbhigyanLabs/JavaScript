@@ -74,7 +74,7 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
 
 ---
 # Data Types
-### **1. Primitive Types** *(immutable, stored directly)*
+### ** Primitive Types** *(immutable, stored directly)*
 
 1. **String** – text data
 
@@ -114,7 +114,7 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
 
 ---
 
-### **2. Non-Primitive Type** *(reference type)*
+### ** Non-Primitive Type** *(reference type)*
 
 8. **Object** – collections of key–value pairs, arrays, functions, etc.
 
@@ -123,5 +123,3 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
    ```
 
 ---
-
-If you want, I can also give you a **table showing all data types with `typeof` results** so you can see how JavaScript actually classifies them.
