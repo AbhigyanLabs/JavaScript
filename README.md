@@ -69,11 +69,9 @@ function outer() {
 outer();
 ```
 
-
-JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
-
 ---
 # Data Types
+JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
    ### **Primitive Type** *(immutable, stored directly)*
 
 
