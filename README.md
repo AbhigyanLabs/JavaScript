@@ -2,7 +2,7 @@
 Code repo for Java script tutorial.
 
 
-<span style="color:red"># Content</span>
+# Content
 
 Four types of scope are-
 In **JavaScript**, *scope* means **where in your code a variable or function can be accessed**.
