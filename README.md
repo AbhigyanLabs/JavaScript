@@ -73,7 +73,7 @@ outer();
 JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
 
 ---
-
+#Data Types
 ### **1. Primitive Types** *(immutable, stored directly)*
 
 1. **String** – text data
