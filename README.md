@@ -2,6 +2,8 @@
 Code repo for Java script tutorial.
 
 
+# Content
+
 Four types of scope are-
 In **JavaScript**, *scope* means **where in your code a variable or function can be accessed**.
 
@@ -67,12 +69,11 @@ function outer() {
 outer();
 ```
 
-
-JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
-
 ---
+# Data Types
+JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
+   ### **Primitive Type** *(immutable, stored directly)*
 
-### **1. Primitive Types** *(immutable, stored directly)*
 
 1. **String** – text data
 
@@ -112,7 +113,7 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
 
 ---
 
-### **2. Non-Primitive Type** *(reference type)*
+### **Non-Primitive Type** *(Reference Type)*
 
 8. **Object** – collections of key–value pairs, arrays, functions, etc.
 
@@ -121,5 +122,3 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
    ```
 
 ---
-
-If you want, I can also give you a **table showing all data types with `typeof` results** so you can see how JavaScript actually classifies them.
