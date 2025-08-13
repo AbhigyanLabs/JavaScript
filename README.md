@@ -1,5 +1,5 @@
-# JAVASCRIPT
-Code repo for Java script tutorial.
+# JavaScript
+Notes repo. for JavaScript tutorial.
 
 
 # Content
