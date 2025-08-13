@@ -169,6 +169,67 @@ x = "Hello";    // now a string
 
 ---
 
+## Memory
+
+In JavaScript (and most programming languages), **stack** and **heap** are two different areas of memory with different purposes:
+
+---
+
+### **1. Stack** 🗂️
+
+* Stores **primitive values** (`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`).
+* Fixed size, fast access.
+* Data is stored **by value** (copy is created).
+* Variables in the stack are removed automatically when they go out of scope.
+
+**Example (code):**
+
+```javascript
+let youtubename = "AbhigyanLabs"; // stored directly in stack
+let anothername = youtubename;    // a copy is made
+anothername = "Tech Incarnate";   // only this copy changes
+
+console.log(youtubename); // "AbhigyanLabs"
+console.log(anothername); // "Tech Incarnate"
+```
+
+---
+
+### **2. Heap** 📦
+
+* Stores **non-primitive values** (`object`, `array`, `function`, etc.).
+* Dynamic size, slower access than stack.
+* Data is stored **by reference** (stack holds a pointer to the object in heap).
+* Changing one reference affects all variables pointing to that object.
+
+**Example (code):**
+
+```javascript
+let userOne = {
+    email: "abhigyan@google.com",
+    age: 22
+};
+
+let userTwo = userOne; // both point to same heap object
+userTwo.email = "vidyanshu@google.com"; // changes the shared object
+
+console.log(userOne.email); // "vidyanshu@google.com"
+console.log(userTwo.email); // "vidyanshu@google.com"
+```
+
+---
+
+
+✅ **Quick Summary**
+
+| Feature      | Stack      | Heap                |
+| ------------ | ---------- | ------------------- |
+| Stores       | Primitives | Objects & functions |
+| Access speed | Fast       | Slower              |
+| Storage type | Value      | Reference           |
+| Size         | Fixed      | Dynamic             |
+
+
 # Comparisons
 
 **JS Comparison vs Equality**
