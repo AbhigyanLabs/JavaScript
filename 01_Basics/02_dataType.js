@@ -19,3 +19,4 @@ console.log(typeof null);
 //null
 //undefined
 //symbol
+

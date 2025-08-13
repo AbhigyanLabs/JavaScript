@@ -72,6 +72,14 @@ outer();
 ---
 # Data Types
 JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
+
+In JavaScript, **primitive** and **non-primitive** (reference) types are categorized based on **how the data is stored and accessed in memory**.
+
+* **Primitive types** → Stored **directly** in the stack as a single value.
+* **Non-primitive types** → Store a **reference (address)** to the object in the heap.
+
+That’s why primitives are **copied by value**, while non-primitives are **copied by reference**.
+
    ### **Primitive Type** *(immutable, stored directly)*
 
 
@@ -121,4 +129,62 @@ JavaScript has **8 main data types** — split into **primitive** and **non-prim
    let user = { name: "Abhigyan", age: 20 };
    ```
 
+In JavaScript, **reference data types** (non-primitives) store a **memory reference** to the actual data in the heap.
+
+**Main reference types:**
+
+* **Object**
+* **Array**
+* **Function**
+* **Date**
+* **RegExp**
+* **Map**, **Set**, **WeakMap**, **WeakSet**
+* Any custom object you create
+
+**Key points:**
+
+* Copied **by reference**, not by value.
+* Comparing two different references with `===` is **false**, even if they have the same content.
+
+Example:
+
+```javascript
+let a = { name: "Abhigyan" };
+let b = a;
+b.name = "Alex";
+
+console.log(a.name); // "Alex" (because a and b reference same object)
+```
+
+**JavaScript is dynamically typed**.
+
+That means you **don’t need to declare the data type** of a variable; the type is determined **at runtime** based on the value assigned, and it can change later.
+
+Example:
+
+```javascript
+let x = 5;      // number
+x = "Hello";    // now a string
+```
+
 ---
+
+# Comparisons
+
+**JS Comparison vs Equality**
+
+* **Comparison (`<`, `>`, `<=`, `>=`)** → Converts to numbers
+
+  * `null` → `0`
+  * `undefined` → `NaN` (always false)
+
+* **Loose equality (`==`)** → Type conversion
+
+  * `null == undefined` → `true`
+  * Else, `null` only equals itself
+
+* **Strict equality (`===`)** → No conversion
+
+  * Types must match exactly
+
+=== in JavaScript is strict equality → compares value + type without type conversion.
