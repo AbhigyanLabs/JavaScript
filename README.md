@@ -1,10 +1,9 @@
-# JAVASCRIPT
-Code repo for Java script tutorial.
+# JavaScript
+Notes repo. for JavaScript tutorial.
 
 
 # Content
 
-Four types of scope are-
 In **JavaScript**, *scope* means **where in your code a variable or function can be accessed**.
 
 ---
@@ -131,7 +130,7 @@ That’s why primitives are **copied by value**, while non-primitives are **copi
 
 In JavaScript, **reference data types** (non-primitives) store a **memory reference** to the actual data in the heap.
 
-**Main reference types:**
+## **Main reference types:**
 
 * **Object**
 * **Array**
@@ -156,7 +155,7 @@ b.name = "Alex";
 console.log(a.name); // "Alex" (because a and b reference same object)
 ```
 
-**JavaScript is dynamically typed**.
+## Note -> **JavaScript is dynamically typed**.
 
 That means you **don’t need to declare the data type** of a variable; the type is determined **at runtime** based on the value assigned, and it can change later.
 
