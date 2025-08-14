@@ -271,3 +271,152 @@ console.log(greeting2); // Hello, Abhigyan!
 * Reduces errors from missing spaces or quotes.
 
 In short: **always prefer `` `${}` `` over `+` concatenation** in modern JS.
+
+---
+
+### **🔢 Numbers**
+
+* JavaScript has **only one numeric type**:
+* `Number.MAX_VALUE` → largest positive number (\~1.79e308)
+* `Number.MIN_VALUE` → smallest positive number (>0, \~5e-324)
+* `Number.MAX_SAFE_INTEGER` → `9007199254740991`
+* `Number.MIN_SAFE_INTEGER` → `-9007199254740991`
+* `Number.isNaN(value)` → checks if value is NaN (better than `isNaN()` global).
+* `Number.isFinite(value)` → checks if value is a finite number.
+* `parseInt("42")` → converts string to integer.
+* `parseFloat("42.5")` → converts string to floating number.
+* `toFixed(n)` → formats number to `n` decimal places (returns string).
+
+---
+
+### **📐 Math object**
+
+* `Math.PI` → 3.141592653589793
+* `Math.abs(x)` → absolute value.
+* `Math.round(x)` → rounds to nearest integer.
+* `Math.ceil(x)` → rounds up.
+* `Math.floor(x)` → rounds down.
+* `Math.trunc(x)` → removes decimal without rounding.
+* `Math.sqrt(x)` → square root.
+* `Math.pow(a, b)` → a raised to power b (`a ** b` is shorter).
+* `Math.random()` → random number 0 ≤ x < 1.
+* **Random in range**:
+
+  ```js
+  Math.floor(Math.random() * (max - min + 1)) + min
+  ```
+* `Math.min(...values)` / `Math.max(...values)` → smallest/largest value.
+* `Math.sign(x)` → returns `1`, `-1`, or `0` depending on sign of x.
+
+---
+
+💡 **Tip:** Avoid direct equality checks with floating-point numbers (`0.1 + 0.2 === 0.3` → false). Use a small tolerance:
+
+```js
+Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
+```
+
+---
+
+📌 Math & Number in JavaScript
+│
+├── 🔢 Number Constants
+│   ├─ Number.MAX_VALUE
+│   ├─ Number.MIN_VALUE
+│   ├─ Number.MAX_SAFE_INTEGER
+│   ├─ Number.MIN_SAFE_INTEGER
+│   ├─ Number.EPSILON
+│
+├── 🧮 Parsing & Conversion
+│   ├─ parseInt("42")
+│   ├─ parseFloat("42.5")
+│   ├─ Number(value)
+│   ├─ value.toFixed(n)
+│
+├── 📐 Rounding
+│   ├─ Math.round(x)
+│   ├─ Math.ceil(x)
+│   ├─ Math.floor(x)
+│   ├─ Math.trunc(x)
+│
+├── 🎲 Random
+│   ├─ Math.random()  // 0 ≤ x < 1
+│   └─ Range formula: Math.floor(Math.random() * (max - min + 1)) + min
+│
+├── 📊 Powers & Roots
+│   ├─ Math.pow(a, b) / a ** b
+│   ├─ Math.sqrt(x)
+│   ├─ Math.cbrt(x)
+│
+├── 📏 Comparison
+│   ├─ Math.min(...values)
+│   ├─ Math.max(...values)
+│   ├─ Math.sign(x)
+│   ├─ Number.isFinite(x)
+│   ├─ Number.isNaN(x)
+│
+└── 💡 Tip
+    └─ Floating-point check:
+       Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
+
+# Dates
+
+## JavaScript Date Methods Quick Reference
+   Date is an object
+
+# JavaScript Date Methods Quick Reference
+
+```js
+let myDate = new Date();
+
+console.log(myDate.toString()); 
+// Full date & time string in the system's local time zone.
+// Example : Thu Aug 14 2025 09:02:17 GMT+0000 (Coordinated Universal Time)
+
+console.log(myDate.toISOString()); 
+// Date & time in ISO 8601 format (always UTC).
+// Example: 2025-08-14T09:02:17.123Z
+
+console.log(myDate.toJSON()); 
+// Same as toISOString(), used for JSON serialization.
+// Example: 2025-08-14T09:02:17.123Z
+
+console.log(myDate.toDateString()); 
+// Human-readable date only (no time).
+// Example: Thu Aug 14 2025
+
+console.log(myDate.toLocaleDateString()); 
+// Date only, formatted for the default or given locale.
+// Default (en-US): 8/14/2025
+// India (en-IN): 14/8/2025
+
+console.log(myDate.toLocaleString()); 
+// Date & time, formatted for the default or given locale.
+// Default (en-US): 8/14/2025, 9:02:17 AM
+// India (en-IN): 14/8/2025, 2:32:17 pm
+
+console.log(myDate.toLocaleTimeString()); 
+// Time only, formatted for the default or given locale.
+// Default (en-US): 9:02:17 AM
+// India (en-IN): 2:32:17 pm
+
+
+# Arrays:
+
+* **Shallow Copy:** Changes in **nested objects/arrays** of the copy **also affect the original**. Only top-level changes are independent.
+
+* **Deep Copy:** Changes in the copy **do NOT affect the original**, even for nested objects/arrays.
+
+
+## Slice & Splice
+
+**slice()** → returns a **new array**, original **unchanged**.
+**splice()** → **changes the original array** (remove/add elements).
+
+**Example:**
+
+```javascript
+let arr = [1,2,3,4];
+arr.slice(1,3); // [2,3], arr unchanged
+arr.splice(1,2); // removes 2 & 3, arr = [1,4]
+```
