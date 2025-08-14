@@ -29,3 +29,6 @@ console.log(newStringOne.trim());
 const url = "https://abhigyan.com/labs%30singh"
 console.log(url.replace('%30', '-'))
 console.log(url.includes('%30'))
+
+const demoString = "I-am-going-to-be-the-WizardKing"
+console.log(demoString.split('-'))

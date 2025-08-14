@@ -249,3 +249,26 @@ console.log(userTwo.email); // "vidyanshu@google.com"
   * Types must match exactly
 
 === in JavaScript is strict equality → compares value + type without type conversion.
+---
+In modern JavaScript, **template literals (`${}`)** are preferred over string concatenation with `+`.
+
+**Example:**
+
+```javascript
+// Using +
+let name = "Abhigyan";
+let greeting = "Hello, " + name + "!";
+console.log(greeting); // Hello, Abhigyan!
+
+// Using template literal
+let greeting2 = `Hello, ${name}!`;
+console.log(greeting2); // Hello, Abhigyan!
+```
+
+**Why `${}` is better:**
+
+* Cleaner and more readable for multiple variables.
+* Supports multi-line strings easily.
+* Reduces errors from missing spaces or quotes.
+
+In short: **always prefer `` `${}` `` over `+` concatenation** in modern JS.
