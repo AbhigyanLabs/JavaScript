@@ -401,7 +401,7 @@ console.log(myDate.toLocaleTimeString());
 // India (en-IN): 2:32:17 pm
 
 
-# Arrays:
+# JavaScript Arrays – Quick Notes
 
 * **Shallow Copy:** Changes in **nested objects/arrays** of the copy **also affect the original**. Only top-level changes are independent.
 
@@ -420,3 +420,90 @@ let arr = [1,2,3,4];
 arr.slice(1,3); // [2,3], arr unchanged
 arr.splice(1,2); // removes 2 & 3, arr = [1,4]
 ```
+
+---
+
+
+## 1. Array Basics
+
+* Can store **mixed datatypes**.
+* Two ways to create:
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = new Array(4, 5, 6);
+```
+
+* Access elements: `arr[0]`, `arr[1]`…
+
+---
+
+## 2. Adding/Removing Elements
+
+| Method      | Description                   |
+| ----------- | ----------------------------- |
+| `push()`    | Add element at **end**        |
+| `pop()`     | Remove element from **end**   |
+| `unshift()` | Add element at **start**      |
+| `shift()`   | Remove element from **start** |
+
+---
+
+## 3. Slice & Splice
+
+* **slice(start, end)** → returns **new array**, original unchanged.
+* **splice(start, deleteCount, …items)** → **modifies original array**.
+
+```javascript
+let arr = [1,2,3,4];
+arr.slice(1,3); // [2,3], original unchanged
+arr.splice(1,2); // removes 2 & 3, arr = [1,4]
+```
+
+---
+
+## 4. Combining Arrays
+
+* **concat()** → combines arrays without changing originals.
+* **Spread operator (`...`)** → combine multiple arrays easily.
+
+```javascript
+const combined = [...arr1, ...arr2];
+```
+
+---
+
+## 5. Nested Arrays
+
+* **flat(depth)** → flattens nested arrays to specified depth.
+
+```javascript
+let arr = [1,[2,3,[4]]];
+arr.flat(2); // [1,2,3,4]
+```
+
+---
+
+## 6. Array Utilities
+
+| Method            | Description                              |
+| ----------------- | ---------------------------------------- |
+| `Array.isArray()` | Check if a value is an array             |
+| `Array.from()`    | Convert iterable (string, etc.) to array |
+| `Array.of()`      | Create array from arguments              |
+
+```javascript
+Array.from("Hello"); // ['H','e','l','l','o']
+Array.of(1,2,3);    // [1,2,3]
+```
+
+---
+
+✅ **Tips**
+
+* Use **slice** for safe copies.
+* Use **splice** for editing original array.
+* Spread operator `...` is handy for combining arrays.
+* Use `flat()` for nested arrays.
+
+---
