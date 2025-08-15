@@ -507,3 +507,84 @@ Array.of(1,2,3);    // [1,2,3]
 * Use `flat()` for nested arrays.
 
 ---
+
+Here’s a concise **README-friendly version** of your JS objects & arrays notes with short explanations and minimal code:
+
+---
+
+# JavaScript Objects & Arrays - Quick Reference
+
+## 1. Singleton Objects
+
+* **Object Literal (preferred)**: `{}`
+* **Constructor**: `new Object()`
+* Used to create a single object.
+
+```javascript
+const user = { id: "123", name: "Sam", isLoggedIn: false };
+```
+
+*Properties can be added/modified dynamically.*
+
+---
+
+## 2. Nested Objects & Optional Chaining
+
+* Objects can have objects inside them.
+* Optional chaining `?.` prevents errors if a property is missing.
+
+```javascript
+const user = { fullname: { first: "Abhigyan", last: "Singh" } };
+console.log(user.fullname?.last); // "Singh"
+```
+
+---
+
+## 3. Merging Objects
+
+* **Object.assign()** modifies the first object.
+* **Spread operator** `{...obj1, ...obj2}` creates a new object.
+
+```javascript
+const obj1 = { a: 1 }; 
+const obj2 = { b: 2 };
+const merged = {...obj1, ...obj2}; // { a: 1, b: 2 }
+```
+
+---
+
+## 4. Array of Objects
+
+* Arrays can store multiple objects.
+* Access by index.
+
+```javascript
+const users = [{name:"A"}, {name:"B"}];
+console.log(users[1].name); // "B"
+```
+
+---
+
+## 5. Object Utilities
+
+* `Object.keys(obj)` → array of property names
+* `Object.values(obj)` → array of values
+* `Object.entries(obj)` → array of \[key, value] pairs
+* `obj.hasOwnProperty("key")` → check if property exists
+
+```javascript
+console.log(Object.keys(user)); // ["fullname"]
+console.log(user.hasOwnProperty("id")); // false
+```
+
+---
+
+## Notes
+
+* Use **object literals** for simplicity.
+* **Optional chaining** prevents runtime errors.
+* **Spread operator** is preferred for merging objects.
+* Arrays + objects allow flexible data storage and access.
+* Object utilities convert objects into arrays for iteration and checks.
+
+---
