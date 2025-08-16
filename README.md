@@ -588,3 +588,249 @@ console.log(user.hasOwnProperty("id")); // false
 * Object utilities convert objects into arrays for iteration and checks.
 
 ---
+
+# 🚀 JavaScript Execution Concepts
+
+## **JavaScript Execution Context**
+
+* The environment in which JavaScript code is evaluated and executed.
+* Determines how variables, functions, and objects are accessed.
+
+---
+
+## **Global Execution Context (GEC)**
+
+* Default context where the code starts running.
+* Created when the JS engine starts executing your file.
+* Two things happen automatically:
+
+  * A **global object** is created (`window` in browsers, `global` in Node.js).
+  * A special variable `this` is created (refers to the global object in non-strict mode).
+
+---
+
+## **Execution Context Types**
+
+1. **Global Execution Context** → Created once, when the file runs.
+2. **Function Execution Context** → Created every time a function is called.
+3. **Eval Execution Context** → Created when code runs inside `eval()` (rarely used).
+
+---
+
+## **JavaScript is...**
+
+* **Single-threaded**: Executes one command at a time.
+* **Synchronous (by default)**: Runs line by line.
+* Uses the **call stack** to manage execution.
+
+---
+
+## **Function Execution Context (FEC)**
+
+* Created when a function is invoked.
+* Has its own memory for variables, arguments, and inner functions.
+* After execution, it gets destroyed and removed from the call stack.
+
+---
+
+## **Eval Execution Context**
+
+* Created when using `eval()` to run code as a string.
+* Not recommended (unsafe + slow).
+
+---
+
+## **How JS Code Executes**
+
+JavaScript code execution happens in **two phases**:
+
+1. **Memory Creation Phase (Hoisting Phase)**
+
+   * Variables are allocated memory (initialized with `undefined`).
+   * Functions are stored in memory completely.
+   * `this` keyword is assigned.
+
+2. **Execution Phase**
+
+   * Code is executed line by line.
+   * Variable assignments and function calls happen here.
+
+---
+
+## **Example**
+
+```js
+var a = 10;
+function test() {
+  var b = 20;
+  console.log(a + b);
+}
+test();
+```
+
+### Steps:
+
+1. **Global Execution Context created**
+
+   * `a` → memory allocated (`undefined`)
+   * `test` → function stored
+   * `this` → global object
+
+2. **Execution Phase**
+
+   * `a = 10` assigned
+   * `test()` is called → new **Function Execution Context** created
+
+     * Inside `test`: `b` → memory allocated (`undefined`) → then assigned `20`.
+     * Executes `console.log(a + b)` → prints `30`.
+
+---
+
+## **Call Stack**
+
+* A data structure that keeps track of execution contexts.
+* Works on **LIFO (Last In, First Out)**.
+* Flow:
+
+  * Global Execution Context is pushed first.
+  * Each function call pushes a new Function Execution Context.
+  * When a function finishes, its context is popped out.
+
+---
+
+# Loop
+
+````markdown
+## 🔄 Loops in JavaScript (with `break` & `continue`)
+
+### 1. `for` Loop
+- Used when you know the number of iterations in advance.  
+- Syntax:
+  ```js
+  for (let i = 0; i < 5; i++) {
+      console.log(i);
+  }
+````
+
+* **`break`** → Exits the loop immediately.
+* **`continue`** → Skips the current iteration and moves to the next one.
+
+  ```js
+  for (let i = 1; i <= 5; i++) {
+      if (i === 3) continue;  // Skips when i=3
+      if (i === 5) break;     // Exits loop when i=5
+      console.log(i);
+  }
+  ```
+
+---
+
+### 2. `while` Loop
+
+* Used when the number of iterations is **not known** beforehand.
+* Runs **while the condition is true**.
+
+  ```js
+  let i = 0;
+  while (i < 5) {
+      console.log(i);
+      i++;
+  }
+  ```
+
+---
+
+### 3. `do...while` Loop
+
+* Executes **at least once**, even if the condition is false.
+* Syntax:
+
+  ```js
+  let i = 0;
+  do {
+      console.log(i);
+      i++;
+  } while (i < 5);
+  ```
+
+---
+
+✅ **Key Points to Remember**
+
+* `for` → Best when iterations are fixed.
+* `while` → Best when iterations depend on a condition.
+* `do...while` → Ensures loop body runs at least once.
+* `break` → Stops loop execution.
+* `continue` → Skips the current iteration.
+
+```
+### 📌 `map()` in JavaScript
+
+* `map()` is an **array method** that creates a **new array** by applying a function to **each element** of the original array.
+* It does **not change** the original array.
+* Commonly used for **transforming data**.
+
+**Syntax:**
+
+```js
+array.map(callback(element, index, array))
+```
+
+* **callback** → Function applied to each element.
+* **element** → Current element being processed.
+* **index** → Index of the current element.
+* **array** → The original array.
+
+**Example:**
+
+```js
+const numbers = [1, 2, 3, 4];
+const squared = numbers.map(num => num * num);
+console.log(squared); // [1, 4, 9, 16]
+```
+
+---
+
+### 📌 `reduce()` in JavaScript
+
+* `reduce()` is an **array method** that reduces all elements of an array into a **single value**.
+* It executes a **callback function** on each element, carrying over an **accumulator**.
+
+**Syntax:**
+
+```js
+array.reduce(callback(accumulator, currentValue, index, array), initialValue)
+```
+
+* **accumulator** → Stores the result after each iteration.
+* **currentValue** → Current element being processed.
+* **initialValue** → (Optional) Starting value of the accumulator.
+
+**Example (Sum of numbers):**
+
+```js
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); // 10
+```
+
+**Example (Shopping cart total):**
+
+```js
+const shoppingCart = [
+  { itemName: "js course", price: 2999 },
+  { itemName: "python course", price: 999 },
+  { itemName: "mobile dev course", price: 5999 },
+  { itemName: "data science course", price: 12999 },
+];
+
+const totalPrice = shoppingCart.reduce((acc, item) => acc + item.price, 0);
+console.log(totalPrice); // 22996
+```
+
+---
+
+👉 `map()` → Creates a **new transformed array**.
+👉 `reduce()` → Reduces an array into a **single value** (sum, product, total, etc).
+
+---
