@@ -315,91 +315,80 @@ In short: **always prefer `` `${}` `` over `+` concatenation** in modern JS.
 ```js
 Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
 ```
+# 📌 Math & Number in JavaScript
+
+## 🔢 Number Constants
+
+* `Number.MAX_VALUE` → Largest positive number JS can represent.
+* `Number.MIN_VALUE` → Smallest positive number (closest to 0).
+* `Number.MAX_SAFE_INTEGER` → Largest integer that can be represented safely (`2^53 - 1`).
+* `Number.MIN_SAFE_INTEGER` → Smallest safe integer (`-(2^53 - 1)`).
+* `Number.EPSILON` → Smallest difference between two representable numbers.
 
 ---
 
-📌 Math & Number in JavaScript
-│
-├── 🔢 Number Constants
-│   ├─ Number.MAX_VALUE
-│   ├─ Number.MIN_VALUE
-│   ├─ Number.MAX_SAFE_INTEGER
-│   ├─ Number.MIN_SAFE_INTEGER
-│   ├─ Number.EPSILON
-│
-├── 🧮 Parsing & Conversion
-│   ├─ parseInt("42")
-│   ├─ parseFloat("42.5")
-│   ├─ Number(value)
-│   ├─ value.toFixed(n)
-│
-├── 📐 Rounding
-│   ├─ Math.round(x)
-│   ├─ Math.ceil(x)
-│   ├─ Math.floor(x)
-│   ├─ Math.trunc(x)
-│
-├── 🎲 Random
-│   ├─ Math.random()  // 0 ≤ x < 1
-│   └─ Range formula: Math.floor(Math.random() * (max - min + 1)) + min
-│
-├── 📊 Powers & Roots
-│   ├─ Math.pow(a, b) / a ** b
-│   ├─ Math.sqrt(x)
-│   ├─ Math.cbrt(x)
-│
-├── 📏 Comparison
-│   ├─ Math.min(...values)
-│   ├─ Math.max(...values)
-│   ├─ Math.sign(x)
-│   ├─ Number.isFinite(x)
-│   ├─ Number.isNaN(x)
-│
-└── 💡 Tip
-    └─ Floating-point check:
-       Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
+## 🧮 Parsing & Conversion
 
+* `parseInt("42")` → Converts string to integer (`42`).
+* `parseFloat("42.5")` → Converts string to floating number (`42.5`).
+* `Number(value)` → Converts any value to number.
+* `value.toFixed(n)` → Formats number with `n` decimal places.
+
+---
+
+## 📐 Rounding
+
+* `Math.round(x)` → Rounds to nearest integer.
+* `Math.ceil(x)` → Rounds **up**.
+* `Math.floor(x)` → Rounds **down**.
+* `Math.trunc(x)` → Removes decimal part.
+
+---
+
+## 🎲 Random
+
+* `Math.random()` → Returns a pseudo-random number `0 ≤ x < 1`.
+* **Range Formula**:
+
+  ```js
+  Math.floor(Math.random() * (max - min + 1)) + min
+  ```
+
+  → Random integer between `min` and `max` (inclusive).
+
+---
+
+## 📊 Powers & Roots
+
+* `Math.pow(a, b)` / `a ** b` → Exponentiation.
+* `Math.sqrt(x)` → Square root.
+* `Math.cbrt(x)` → Cube root.
+
+---
+
+## 📏 Comparison
+
+* `Math.min(...values)` → Smallest value.
+* `Math.max(...values)` → Largest value.
+* `Math.sign(x)` → Returns `-1`, `0`, or `1` depending on sign.
+* `Number.isFinite(x)` → Checks if value is finite.
+* `Number.isNaN(x)` → Checks if value is NaN.
+
+---
+
+## 💡 Tip
+
+* **Floating-point precision check:**
+
+  ```js
+  Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
+  // true
+  ```
 # Dates
 
 ## JavaScript Date Methods Quick Reference
    Date is an object
-
-# JavaScript Date Methods Quick Reference
-
-```js
-let myDate = new Date();
-
-console.log(myDate.toString()); 
-// Full date & time string in the system's local time zone.
-// Example : Thu Aug 14 2025 09:02:17 GMT+0000 (Coordinated Universal Time)
-
-console.log(myDate.toISOString()); 
-// Date & time in ISO 8601 format (always UTC).
-// Example: 2025-08-14T09:02:17.123Z
-
-console.log(myDate.toJSON()); 
-// Same as toISOString(), used for JSON serialization.
-// Example: 2025-08-14T09:02:17.123Z
-
-console.log(myDate.toDateString()); 
-// Human-readable date only (no time).
-// Example: Thu Aug 14 2025
-
-console.log(myDate.toLocaleDateString()); 
-// Date only, formatted for the default or given locale.
-// Default (en-US): 8/14/2025
-// India (en-IN): 14/8/2025
-
-console.log(myDate.toLocaleString()); 
-// Date & time, formatted for the default or given locale.
-// Default (en-US): 8/14/2025, 9:02:17 AM
-// India (en-IN): 14/8/2025, 2:32:17 pm
-
-console.log(myDate.toLocaleTimeString()); 
-// Time only, formatted for the default or given locale.
-// Default (en-US): 9:02:17 AM
-// India (en-IN): 2:32:17 pm
-
+   For rest refer to code file. It has commented and explained content.
 
 # JavaScript Arrays – Quick Notes
 
