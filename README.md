@@ -1,12 +1,3 @@
-<img width="803" height="418" alt="Data-Types" src="https://github.com/user-attachments/assets/c8bd7531-a499-4799-ad30-554dfb61d933" />
-
-
-
-
-
-
-
-
 # JavaScript
 Notes repo. for JavaScript tutorial.
 
