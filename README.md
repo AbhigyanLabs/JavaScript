@@ -70,6 +70,14 @@ outer();
 
 ---
 # Data Types
+
+
+![JavaScript Data Types](./assets/Data-Types.png)
+
+
+
+
+
 JavaScript has **8 main data types** — split into **primitive** and **non-primitive**.
 
 In JavaScript, **primitive** and **non-primitive** (reference) types are categorized based on **how the data is stored and accessed in memory**.
@@ -505,10 +513,6 @@ Array.of(1,2,3);    // [1,2,3]
 * Use **splice** for editing original array.
 * Spread operator `...` is handy for combining arrays.
 * Use `flat()` for nested arrays.
-
----
-
-Here’s a concise **README-friendly version** of your JS objects & arrays notes with short explanations and minimal code:
 
 ---
 
