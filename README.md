@@ -72,7 +72,7 @@ outer();
 # Data Types
 
 
-![JavaScript Data Types](./assets/Data-Types.png)
+![JavaScript Data Types](./assets/datatypes.jpg)
 
 
 
