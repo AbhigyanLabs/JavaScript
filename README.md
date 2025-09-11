@@ -827,3 +827,148 @@ console.log(totalPrice); // 22996
 👉 `reduce()` → Reduces an array into a **single value** (sum, product, total, etc).
 
 ---
+
+
+The **DOM (Document Object Model)** in JavaScript is the programming interface that represents a webpage as a **tree of objects**. It allows JavaScript to **access, modify, add, or delete** HTML elements and their content dynamically.
+
+---
+
+### 🔹 What DOM Is
+
+* Browser converts your **HTML document → into a DOM tree**.
+* Each HTML element becomes a **node/object** in the tree.
+* JavaScript can use the DOM to manipulate elements in real time.
+
+---
+
+### 🔹 Example DOM Tree
+
+For this HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1 id="title">Hello World</h1>
+    <p>Welcome!</p>
+  </body>
+</html>
+```
+
+DOM looks like a tree:
+
+```
+Document
+ └── html
+      └── body
+          ├── h1 (#title)
+          └── p
+```
+
+---
+
+### 🔹 Common DOM Methods in JavaScript
+
+1. **Select Elements**
+
+   ```js
+   document.getElementById("title");      // select by id
+   document.getElementsByClassName("cls"); // select by class
+   document.getElementsByTagName("p");    // select by tag
+   document.querySelector("#title");      // modern single selector
+   document.querySelectorAll("p");        // select all matching
+   ```
+
+2. **Change Content**
+
+   ```js
+   document.getElementById("title").innerText = "Hi Abhigyan!";
+   document.getElementById("title").innerHTML = "<i>Hi!</i>";
+   ```
+
+3. **Change Style**
+
+   ```js
+   document.getElementById("title").style.color = "blue";
+   ```
+
+4. **Create & Add Elements**
+
+   ```js
+   let newP = document.createElement("p");
+   newP.innerText = "New Paragraph";
+   document.body.appendChild(newP);
+   ```
+
+5. **Remove Elements**
+
+   ```js
+   document.getElementById("title").remove();
+   ```
+
+---
+
+### 🔹 Why DOM is Important
+
+* Makes websites **dynamic & interactive**.
+* Allows updating content without reloading page.
+* Forms the core of **frontend development** with JS, React, Angular, etc.
+
+---
+
+## 🔹 **NodeList in JavaScript**
+
+* Returned by DOM methods like `querySelectorAll()`.
+* Looks like an array, but **not a true array**.
+* Can be looped with `forEach`, but doesn’t have all array methods like `map`, `filter` (unless converted).
+
+```js
+let nodes = document.querySelectorAll("p"); 
+console.log(nodes); // NodeList of <p> elements
+```
+
+---
+
+## 🔹 **Array**
+
+* Standard JavaScript data structure.
+* Has full methods: `map()`, `filter()`, `reduce()`, etc.
+* To convert a NodeList → Array:
+
+```js
+let arr = Array.from(document.querySelectorAll("p"));
+// or
+let arr2 = [...document.querySelectorAll("p")];
+```
+
+---
+
+## 🔹 **Selectors in DOM**
+
+Selectors are used to **find elements in HTML**:
+
+* **`getElementById("id")`** → single element by `id`.
+* **`getElementsByClassName("class")`** → HTMLCollection of elements.
+* **`getElementsByTagName("tag")`** → HTMLCollection of elements.
+* **`querySelector("css-selector")`** → first element that matches CSS selector.
+* **`querySelectorAll("css-selector")`** → NodeList of all matches.
+
+✅ Example:
+
+```js
+document.getElementById("title");        // by id
+document.getElementsByClassName("box"); // by class
+document.getElementsByTagName("div");   // by tag
+document.querySelector(".box");         // first .box
+document.querySelectorAll(".box");      // all .box
+```
+
+---
+
+⚡ **Key Difference:**
+
+* `querySelectorAll` → gives **NodeList** (can loop with `forEach`).
+* `getElementsByClassName / TagName` → gives **HTMLCollection** (live, updates automatically if DOM changes).
+* Convert NodeList/HTMLCollection to **Array** for advanced methods.
+
+---
