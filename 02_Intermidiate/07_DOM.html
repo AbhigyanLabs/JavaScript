@@ -1,46 +1,54 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning on Chai aur Code</title>
 
-    <title>DOM Learning</title>
+    <!-- Styling for page -->
     <style>
-        .bg-black{
+        .bg-black {
             background-color: #212121;
             color: #fff;
+        }
+        .list-item {
+            margin: 4px 0;
+        }
+        .parent {
+            margin-top: 20px;
+        }
+        .day {
+            padding: 6px;
+            border: 1px solid #fff;
+            margin: 2px 0;
         }
     </style>
 </head>
 <body class="bg-black">
+    <!-- Heading Section -->
     <div>
-        <h1 id="title" class="heading">DOM learning on Chai aur Code <span style="display: none" > test text </span> </h1>
+        <h1 id="title" class="heading">
+            DOM learning on Chai aur Code 
+            <span style="display: none"> test text </span>
+        </h1>
+
+        <!-- Sample Headings and Paragraph -->
         <h2>Lorem ipsum dolor sit amet.</h2>
         <h2>Lorem ipsum dolor sit amet.</h2>
         <h2>Lorem ipsum dolor sit amet.</h2>
         <h2>Lorem ipsum dolor sit amet.</h2>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
 
+        <!-- Unordered List -->
         <ul>
             <li class="list-item">one</li>
             <li class="list-item">two</li>
             <li class="list-item">three</li>
             <li class="list-item">four</li>
         </ul>
-
     </div>
-</body>
-</html> -->
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Chai aur Code</title>
-</head>
-<body style="background-color: black; color: #fff;">
+    <!-- Parent container with days -->
     <div class="parent">
         <div class="day">Monday</div>
         <div class="day">Tuesday</div>
@@ -49,9 +57,55 @@
         <div class="day">Friday</div>
         <div class="day">Saturday</div>
     </div>
+
+    <!-- Language List -->
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+    <script>
+        // Select parent container and log to console
+        const parent = document.querySelector('.parent');
+        console.log(parent);
+
+        // Function to add a new language using innerHTML
+        function addlang(lang) {
+            const li = document.createElement('li');
+            li.innerHTML = `${lang}`;
+            document.querySelector('.language').appendChild(li);
+        }
+        addlang("python");
+        addlang("css");
+
+        // Function to add a new language using createTextNode (better & safer)
+        function addoptlang(langname) {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(langname));
+            document.querySelector('.language').appendChild(li);
+        }
+        addoptlang("Express js");
+
+        // -------- Editing Elements --------
+        
+        // Select 2nd list item and change its content
+        const demolang = document.querySelector("li:nth-child(2)");
+        console.log(demolang);
+        demolang.innerHTML = "MOJO";
+
+        // Replace the same element with a new <li>
+        const newli = document.createElement('li');
+        newli.textContent = "MERN";
+        demolang.replaceWith(newli);
+
+        // Replace the first list item entirely using outerHTML
+        const firstlang = document.querySelector("li:first-child");
+        firstlang.outerHTML = "<li>typescript</li>";
+
+        // -------- Removing Elements --------
+        
+        // Remove the first list item
+        const last = document.querySelector('li:first-child');
+        last.remove();
+    </script>
 </body>
-<script>
-    const parent = document.querySelector('.parent')
-    console.log(parent)
-</script>
 </html>

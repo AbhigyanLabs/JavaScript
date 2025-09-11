@@ -972,3 +972,9 @@ document.querySelectorAll(".box");      // all .box
 * Convert NodeList/HTMLCollection to **Array** for advanced methods.
 
 ---
+
+* **`addlang(lang)`** → Adds a new `<li>` element to the language list using `innerHTML`.
+* **`addoptlang(langname)`** → Adds a new `<li>` element to the language list using `createTextNode` (safer and faster).
+* **`replaceWith(newNode)`** → Replaces an existing element with a new one.
+* **`outerHTML`** → Replaces the entire element (including its tag) with new HTML.
+* **`remove()`** → Deletes the selected element from the DOM.
