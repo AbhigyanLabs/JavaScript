@@ -829,7 +829,9 @@ console.log(totalPrice); // 22996
 ---
 
 
-The **DOM (Document Object Model)** in JavaScript is the programming interface that represents a webpage as a **tree of objects**. It allows JavaScript to **access, modify, add, or delete** HTML elements and their content dynamically.
+# 📌 DOM (Document Object Model)  
+
+The **DOM (Document Object Model)** in JavaScript is the programming interface that represents a webpage as a **tree of objects**. It allows JavaScript to **access, modify, add, or delete** HTML elements and their content dynamically.  
 
 ---
 
@@ -978,3 +980,139 @@ document.querySelectorAll(".box");      // all .box
 * **`replaceWith(newNode)`** → Replaces an existing element with a new one.
 * **`outerHTML`** → Replaces the entire element (including its tag) with new HTML.
 * **`remove()`** → Deletes the selected element from the DOM.
+
+---
+
+## 🔹 Example DOM Tree
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1 id="title">Hello World</h1>
+    <p>Welcome!</p>
+  </body>
+</html>
+```
+
+DOM looks like a tree:
+```
+Document
+ └── html
+      └── body
+          ├── h1 (#title)
+          └── p
+```
+
+---
+
+## Notes (Step by Step)
+
+### 1. Get & Set Attributes
+```js
+document.getElementById('title').getAttribute('id')
+document.getElementById('title').setAttribute('class', 'test heading')
+```
+![Get & Set Attributes](./assets/DOM_GetAttribute_SetAttribute.png.png)
+
+---
+
+### 2. Styling & TextContent
+```js
+title.style.backgroundColor = 'red'
+title.style.padding = '15px'
+title.style.borderRadius = '10px'
+title.textContent
+```
+![Style & TextContent](./assets/DOM_Style_TextContent.png.png)
+
+---
+
+### 3. innerText vs textContent vs innerHTML
+```js
+title.innerText
+title.textContent
+title.innerHTML
+```
+![innerText vs textContent vs innerHTML](./assets/DOM_innerText_textContent_innerHTML.png.png)
+
+---
+
+### 4. querySelector
+```js
+document.querySelector('h1')
+document.querySelector('#title')
+document.querySelector('input[type="password"]')
+```
+![querySelector](./assets/DOM_querySelector.png.png)
+
+---
+
+### 5. querySelector with Nested Elements
+```js
+const myul = document.querySelector('ul')
+const turngreen = myul.querySelector('li')
+turngreen.style.backgroundColor = 'green'
+turngreen.innerText = 'Five'
+```
+![querySelector ul > li](./assets/DOM_querySelector_UL_LI_Style_Text.png.png)
+
+---
+
+### 6. querySelectorAll – NodeList vs Array
+```js
+const temp = document.querySelectorAll('li')
+console.log(temp.length)
+
+const arr = [1, 2, 3, 4, 5]
+```
+![querySelectorAll NodeList vs Array](./assets/DOM_querySelectorAll_NodeList_vs_Array.png.png)
+
+---
+
+### 7. querySelectorAll with forEach Styling
+```js
+const temp = document.querySelectorAll('li')
+temp.forEach(function(li) {
+  li.style.backgroundColor = 'red'
+})
+```
+![querySelectorAll NodeList forEach Style](./assets/DOM_querySelectorAll_NodeList_forEach_Style.png.png)
+
+---
+
+### 8. getElementsByClassName (HTMLCollection)
+```js
+document.getElementsByClassName('list-item')
+```
+![getElementsByClassName HTMLCollection](./assets/DOM_getElementsByClassName_HTMLCollection.png.png)
+
+---
+
+### 9. HTMLCollection → Array Conversion
+```js
+const tempClassList = document.getElementsByClassName('list-item')
+const myConversions = Array.from(tempClassList)
+
+myConversions.forEach(function(li) {
+  li.style.color = 'orange'
+})
+```
+![HTMLCollection to Array Conversion](./assets/DOM_getElementsByClassName_HTMLCollection_toArray.png.png)
+
+---
+
+## ✅ Quick Takeaways
+* `getElementById` → single element.  
+* `getElementsByClassName / getElementsByTagName` → returns **HTMLCollection** (live list).  
+* `querySelector` → returns first match.  
+* `querySelectorAll` → returns **NodeList** (loopable with forEach).  
+* `HTMLCollection` does not have `.forEach()` → convert with `Array.from()`.  
+* `innerText`, `textContent`, `innerHTML` differ in how they treat spacing & hidden elements.  
+* You can dynamically **style, replace, create, and remove** nodes.  
+
+---
+
+
+
+
+
